@@ -2,13 +2,26 @@ package MortagePlan.app.models;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(description = "Details about a mortage")
 public class Mortage {
+    
     @Id
+    @ApiModelProperty(notes="The unique id of the mortage")
     private ObjectId id;
+
+    @ApiModelProperty(notes="Name of the mortage holder")
     private String name;
+
+    @ApiModelProperty(notes="The amount of the mortage")
     private double amount;
+
+    @ApiModelProperty(notes="The interest on the mortage")
     private double interest;
+
+    @ApiModelProperty(notes="How many years the mortage is for")
     private double years;
 
     public Mortage() {
