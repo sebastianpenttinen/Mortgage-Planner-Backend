@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 
 public class Mortage {
     @Id
-    private ObjectId _id;
+    private ObjectId id;
     private String name;
     private double amount;
     private double interest;
@@ -14,8 +14,8 @@ public class Mortage {
     public Mortage() {
     }
 
-    public Mortage(ObjectId _id, String name, double amount, double interest, double years) {
-        this._id = _id;
+    public Mortage(ObjectId id, String name, double amount, double interest, double years) {
+        this.id = id;
         this.name = name;
         this.amount = amount;
         this.interest = interest;
@@ -26,11 +26,11 @@ public class Mortage {
      * @return the id
      */
     public String getId() {
-        return _id.toHexString();
+        return id.toHexString();
     }
 
-    public void setId(ObjectId _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     /**
@@ -82,7 +82,7 @@ public class Mortage {
 
     // @Override
     // public String toString() {
-    //     return String.format("Mortage[id=%s, name='%s', amount='%s', interest='%s', years='%s']", _id, name, amount,
+    //     return String.format("Mortage[id=%s, name='%s', amount='%s', interest='%s', years='%s']", id, name, amount,
     //             interest, years);
     // }
 
