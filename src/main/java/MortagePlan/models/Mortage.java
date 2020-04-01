@@ -93,13 +93,15 @@ public class Mortage {
         this.years = years;
     }
 
-    // @Override
-    // public String toString() {
-    //     return String.format("Mortage[id=%s, name='%s', amount='%s', interest='%s', years='%s']", id, name, amount,
-    //             interest, years);
-    // }
-
+    
     public double monthlyPayment() {
-        return 1000.00;
+        // Divide by 100 to get in decimal , then divide by 12 for the monthly interest
+        double monthlyInterest = (this.interest / 100) / 12.0;
+        return this.amount * ((monthlyInterest * pow(( 1 + monthlyInterest),  this.years * 12))) / (pow((1 + monthlyInterest), this.years * 12) -1);
+    }
+
+    public double pow(double base, double power){
+    if(power == 0) return 1;
+    return base * pow(base, --power);
     }
 }

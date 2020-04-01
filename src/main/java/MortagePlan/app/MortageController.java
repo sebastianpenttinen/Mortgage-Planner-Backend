@@ -36,6 +36,14 @@ public class MortageController {
         return repository.findById(id);
     }
 
+    @ApiOperation(value= "Finds mortage by id",notes = "Provide an id to lookup a mortages monthly payment")
+    @RequestMapping(value = "monthly_payment/{id}", method = RequestMethod.GET)
+    public double getMonthlyPayment(@ApiParam(value = "ID for the mortage you want the monthy payment of", required = true)
+    @PathVariable("id") ObjectId id){
+        Mortage mortage =  repository.findById(id);
+        return mortage.monthlyPayment();
+    }
+
     @ApiOperation(value= "Edit mortage by id",notes = "Provide id and body specifying the change to change a mortage")
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void modifyMortageById(@ApiParam(value= "ID value for the mortage you need to edit", required = true) 
