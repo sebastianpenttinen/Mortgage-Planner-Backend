@@ -46,16 +46,19 @@ public class MortageController {
 
     @ApiOperation(value= "Edit mortage by id",notes = "Provide id and body specifying the change to change a mortage")
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void modifyMortageById(@ApiParam(value= "ID value for the mortage you need to edit", required = true) 
+    public Mortage modifyMortageById(@ApiParam(value= "ID value for the mortage you need to edit", required = true)
     @PathVariable("id") ObjectId id, @Valid @RequestBody Mortage mortage) {
         mortage.setId(id);
+        mortage.setMonthlyPayment();
         repository.save(mortage);
+        return mortage;
     }
 
     @ApiOperation(value= "Create a mortage",notes = "Create a Post request to this endpoint to create a mortage",response = Mortage.class)
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Mortage createMortage(@Valid @RequestBody Mortage mortage) {
         mortage.setId(ObjectId.get());
+        mortage.setMonthlyPayment();
         repository.save(mortage);
         return mortage;
     }

@@ -24,6 +24,8 @@ public class Mortage {
     @ApiModelProperty(notes="How many years the mortage is for")
     private double years;
 
+    private double monthlyPayment;
+
     public Mortage() {
     }
 
@@ -33,6 +35,7 @@ public class Mortage {
         this.amount = amount;
         this.interest = interest;
         this.years = years;
+        this.monthlyPayment = 0.0;
     }
 
     /**
@@ -93,7 +96,20 @@ public class Mortage {
         this.years = years;
     }
 
-    
+    /**
+     * @return the monthlyPayment
+     */
+    public double getMonthlyPayment(){
+        return monthlyPayment;
+    }
+
+    public void setMonthlyPayment(){
+        this.monthlyPayment = monthlyPayment();
+    }
+    /*
+      Set the monthly payment according to this formula:
+          
+     */
     public double monthlyPayment() {
         // Divide by 100 to get in decimal , then divide by 12 for the monthly interest
         double monthlyInterest = (this.interest / 100) / 12.0;
