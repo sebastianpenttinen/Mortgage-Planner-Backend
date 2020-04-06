@@ -108,7 +108,7 @@ public class Mortage {
     }
     /*
       Set the monthly payment according to this formula:
-          
+
      */
     public double monthlyPayment() {
         // Divide by 100 to get in decimal , then divide by 12 for the monthly interest
