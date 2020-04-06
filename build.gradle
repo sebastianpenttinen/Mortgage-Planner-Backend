@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'MortagePlan'
+group = 'MortgagePlan'
 version = '0.0.1'
 sourceCompatibility = '1.8'
 
